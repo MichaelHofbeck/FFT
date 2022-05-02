@@ -1,6 +1,5 @@
-
-
 from json.tool import main
+
 def main():
     print("Hello World")
 
