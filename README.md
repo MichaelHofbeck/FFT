@@ -1,2 +1,2 @@
 # FFT
-Creating the fast Fourier transform from scratch in python.
+Creating the fast Fourier transform from scratch in Python.
