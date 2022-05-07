@@ -1,2 +1,3 @@
-size:  10000000
+size_base: 2
+size_power: 18
 yo: 20
