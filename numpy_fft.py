@@ -11,12 +11,14 @@ def run_fft(data):
     print(runtime)
 
 def run_david_mike(data):
+    cutoff = len(data)
+    padded = data + [0]*( (1<<(cutoff-1).bit_length()) - cutoff)
     start = time.time()
-    david_mike_fft(data)
+    result = david_mike_fft(padded)
     end = time.time()
     runtime = end - start
     print('Finished in ' + str(runtime) + ' seconds!')
-    return runtime
+    return result[:cutoff]
 
 # This only works for data with length 
 # power of 2 (16, 2048, 4096, etc.)
