@@ -7,7 +7,10 @@ import data_generation
 import yaml
 
 def main():
-    numpy_fft.run_dft(data_generation.generate_array(dictionary['size']))
+    data = data_generation.generate_array(dictionary['size'])
+    numpy_fft.run_dft(data)
+    numpy_fft.run_david_mike(data)
+    numpy_fft.run_fft(data)
 
 if __name__ == '__main__':
     with open('config.yml', 'r') as file:
