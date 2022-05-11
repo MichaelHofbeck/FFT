@@ -3,6 +3,7 @@ from matplotlib import pyplot as plt
 import time
 import cmath
 
+# This runs and times the numpy fft
 def run_fft(data):
     start = time.time()
     np.fft.fft(data)
@@ -10,6 +11,8 @@ def run_fft(data):
     runtime = end - start
     print('Finished numpy FFT in ' + str(runtime) + ' seconds!')
 
+
+# This runs and times our scratch fft
 def run_david_mike(data):
     cutoff = len(data)
     padded = data + [0]*( (1<<(cutoff-1).bit_length()) - cutoff)
@@ -31,6 +34,7 @@ def david_mike_fft(data):
     final = [even[k] + transformed[k] for k in range(N//2)] + [even[k] - transformed[k] for k in range(N//2)]
     return final
 
+# This runs and times the Discrete Fourier Transform
 def run_dft(data):
     start = time.time()
     dft(data)
@@ -39,6 +43,7 @@ def run_dft(data):
     print('Finished DFT in ' + str(runtime) + ' seconds!')
     return runtime
 
+# This is the implementation of the DFT from scratch
 def dft(data):
     N = len(data)
     transformed = []
@@ -54,6 +59,7 @@ def dft(data):
     
     return transformed
 
+# This function plots the data
 def show_data(data):
     plt.plot(data)
     plt.show()
