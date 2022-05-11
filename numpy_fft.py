@@ -8,14 +8,14 @@ def run_fft(data):
     np.fft.fft(data)
     end = time.time()
     runtime = end - start
-    print(runtime)
+    print('Finished numpy FFT in ' + str(runtime) + ' seconds!')
 
 def run_david_mike(data):
     start = time.time()
     david_mike_fft(data)
     end = time.time()
     runtime = end - start
-    print('Finished in ' + str(runtime) + ' seconds!')
+    print('Finished scratch FFT in ' + str(runtime) + ' seconds!')
     return runtime
 
 # This only works for data with length 
@@ -34,7 +34,7 @@ def run_dft(data):
     dft(data)
     end = time.time()
     runtime = end - start
-    print('Finished in ' + str(runtime) + ' seconds!')
+    print('Finished DFT in ' + str(runtime) + ' seconds!')
     return runtime
 
 def dft(data):
