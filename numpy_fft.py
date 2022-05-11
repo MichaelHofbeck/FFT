@@ -11,8 +11,10 @@ def run_fft(data):
     print('Finished numpy FFT in ' + str(runtime) + ' seconds!')
 
 def run_david_mike(data):
+    cutoff = len(data)
+    padded = data + [0]*( (1<<(cutoff-1).bit_length()) - cutoff)
     start = time.time()
-    david_mike_fft(data)
+    result = david_mike_fft(padded)
     end = time.time()
     runtime = end - start
     print('Finished scratch FFT in ' + str(runtime) + ' seconds!')
