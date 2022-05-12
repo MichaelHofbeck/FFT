@@ -10,6 +10,7 @@ def run_fft(data):
     end = time.time()
     runtime = end - start
     print('Finished numpy FFT in ' + str(runtime) + ' seconds!')
+    return runtime
 
 
 # This runs and times our scratch fft
