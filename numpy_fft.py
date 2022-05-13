@@ -22,7 +22,7 @@ def run_david_mike(data):
     end = time.time()
     runtime = end - start
     print('Finished scratch FFT in ' + str(runtime) + ' seconds!')
-    return runtime
+    return result
 
 # This only works for data with length 
 # power of 2 (16, 2048, 4096, etc.)
