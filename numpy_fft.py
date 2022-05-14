@@ -12,6 +12,7 @@ def run_fft(data):
     print('Finished numpy FFT in ' + str(runtime) + ' seconds!')
     return result
 
+# This returns the runtime of the NumPy FFT
 def time_fft(data):
     start = time.time()
     np.fft.fft(data)
@@ -19,7 +20,6 @@ def time_fft(data):
     runtime = end - start
     print('Finished numpy FFT in ' + str(runtime) + ' seconds!')
     return runtime
-
 
 # This runs and times our scratch fft
 def run_david_mike(data):
@@ -32,6 +32,7 @@ def run_david_mike(data):
     print('Finished scratch FFT in ' + str(runtime) + ' seconds!')
     return result
 
+# This returns the runtime of the scratch FFT
 def time_david_mike(data):
     cutoff = len(data)
     padded = data + [0]*( (1<<(cutoff-1).bit_length()) - cutoff)
@@ -63,6 +64,7 @@ def run_dft(data):
     print('Finished DFT in ' + str(runtime) + ' seconds!')
     return result
 
+# This returns the runtime of the DFT
 def time_dft(data):
     start = time.time()
     dft(data)
@@ -86,9 +88,3 @@ def dft(data):
     # print(np.allclose(transformed, np.fft.fft(data)))
     
     return transformed
-
-# This function plots the data
-def show_data(data):
-    plt.plot(data)
-    plt.show()
-    return 0

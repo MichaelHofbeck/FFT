@@ -23,14 +23,13 @@ def record_audio():
         frames.append(numpy.frombuffer(data, dtype=numpy.int16))
 
     print('Recording finished!')
-    #Convert the list of numpy-arrays into a 1D array (column-wise)
-    numpydata = list(numpy.hstack(frames))
 
     # close stream
     stream.stop_stream()
     stream.close()
     p.terminate()
 
+    # transcribe the audio into the output file
     wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
     wf.setnchannels(CHANNELS)
     wf.setsampwidth(p.get_sample_size(FORMAT))
@@ -43,5 +42,5 @@ def record_audio():
     return transformed
 
 def wav_to_array():
-    fs_rate, signal = wavfile.read("voice.wav")
+    fs_rate, signal = wavfile.read(WAVE_OUTPUT_FILENAME)
     return signal.tolist()
