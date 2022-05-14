@@ -21,6 +21,7 @@ def size_time_graph(size, interval):
     plt.ylabel('Time (seconds)')
     plt.plot(sizes, mikedavidfft, label = 'Mike David FFT')
     plt.legend()
+    plt.draw()
     plt.show()
 
 # this function plots the FFT
@@ -28,13 +29,18 @@ def plot_fft(data):
     n = len(data)
     x = np.linspace(0.0, 1.0/(2.0 * n), n//2)
     plt.plot(x, 2.0/n * np.abs(data[:n//2]))
+    plt.xlabel('Frequency')
+    plt.ylabel('Amplitude')
+    plt.draw()
     plt.show()
 
 # this function plots the spectrogram - needs to be fixed.
 def plot_spectrogram(data):
     fs = len(data)
     plt.specgram(data, cmap = 'rainbow')
-
+    plt.xlabel('Sample')
+    plt.ylabel('Frequency')
+    plt.draw()
     plt.show()
 
 
